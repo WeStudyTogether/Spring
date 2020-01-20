@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class Person {
     private IAir air;
     @Autowired
-    public Person(@Qualifier("dirtyair") IAir air) {
+    public Person(@Qualifier("cleanair") IAir air) {
         this.air = air;
     }
     
