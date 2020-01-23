@@ -15,4 +15,44 @@
         <qualifier value="dirtyair"></qualifier>
     </bean>
     <bean id="person" class="com.fhlxc.spring.ioc.Person"/>
+    <bean id="user" class="com.fhlxc.spring.beanfactorydemo.UserBean"></bean>
+    <bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="java.util.Date" value="com.fhlxc.spring.beanfactorydemo.CustomerProperty"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="xmlCollectionsDemo" class="com.fhlxc.spring.beanfactorydemo.XmlCollectionsDemo">
+        <property name="list">
+            <list>
+                <value>1</value>
+                <ref bean="CleanAir"/>
+                <bean class="com.fhlxc.spring.ioc.CleanAir"></bean>
+            </list>
+        </property>
+        <property name="sets">
+            <set>
+                <value>1</value>
+                <ref bean="CleanAir"/>
+                <bean class="com.fhlxc.spring.ioc.CleanAir"></bean>
+            </set>
+        </property>
+        <property name="maps">
+            <map>
+                <entry key="key1" value="1"></entry>
+                <entry key="key2" value-ref="CleanAir"></entry>
+                <entry key="key3">
+                    <bean class="com.fhlxc.spring.ioc.CleanAir"></bean>
+                </entry>
+            </map>
+        </property>
+        <property name="pros">
+            <props>
+                <prop key="prokey1">prokeyA</prop>
+                <prop key="prokey2">prokeyB</prop>
+            </props>
+        </property>
+        <property name="date" value="2020-1-23"></property>
+    </bean>
 </beans>
