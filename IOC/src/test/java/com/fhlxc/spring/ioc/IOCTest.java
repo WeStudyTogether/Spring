@@ -1,19 +1,17 @@
-package com.fhlxc.spring.main;
+package com.fhlxc.spring.ioc;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.fhlxc.spring.ioc.Person;
-
 /**
 * @author Xingchao Long
-* @date 2020/58/20 15:58:22
-* @ClassName Ioc
+* @date 2020/56/24 14:56:26
+* @ClassName IOCTest
 * @Description
 */
 
-public class Ioc {
+public class IOCTest {
 
     public static void main(String[] args) {
         @SuppressWarnings("resource")
