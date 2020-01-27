@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/resources/ApplicationContext.xml</config>
 		<config>src/main/resources/aopInterceptor.xml</config>
+		<config>src/main/resources/xmlInterceptor.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

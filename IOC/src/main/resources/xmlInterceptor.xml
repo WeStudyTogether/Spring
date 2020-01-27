@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <context:component-scan base-package="com.fhlxc.spring.basicaop"></context:component-scan>
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+    <bean id="serviceImplA" class="com.fhlxc.spring.basicaop.AOPServicesImpl">
+        <property name="description" value="basicAop"></property>
+    </bean>
+    
+    <bean id="serviceAspectBean" class="com.fhlxc.spring.basicaop.XMLAdvice">
+    </bean>
+    
+    <aop:config>
+        <aop:aspect id="serviceAspect" ref="serviceAspectBean">
+        <!-- * 包名.方法(..)表示零个或多个 -->
+            <aop:pointcut expression="execution(* com.fhlxc.spring.basicaop.*.withAop*(..))" id="servicePointcut"/>
+            <aop:before method="beforeAdvice" pointcut-ref="servicePointcut"/>
+            <aop:after method="afterAdvice" pointcut-ref="servicePointcut"/>
+            <aop:after-returning method="afterReturnAdvice" returning="result" pointcut-ref="servicePointcut"/>
+            <aop:around method="aroundAdvice" pointcut-ref="servicePointcut"/>
+            <aop:after-throwing method="throwingAdvice" throwing="e" pointcut-ref="servicePointcut"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
