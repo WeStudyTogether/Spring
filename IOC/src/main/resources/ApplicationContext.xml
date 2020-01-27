@@ -16,7 +16,10 @@
     </bean>
     <bean id="person" class="com.fhlxc.spring.ioc.Person"/>
     <bean id="annontationInstance" class="com.fhlxc.spring.beanfactorydemo.AnnontationInstance"></bean>
-    <bean id="user" class="com.fhlxc.spring.beanfactorydemo.UserBean"></bean>
+    <bean id="user" class="com.fhlxc.spring.beanfactorydemo.UserBean" destroy-method="myDestroy" init-method="myInit">
+        <property name="name" value="abc"></property>
+    </bean>
+    <bean id="postProcessor" class="com.fhlxc.spring.beanfactorydemo.CusBeanPostProcessor"></bean>
     <bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
         <property name="customEditors">
             <map>
