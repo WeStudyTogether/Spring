@@ -13,8 +13,5 @@
     <bean id="serviceImplA" class="com.fhlxc.spring.basicaop.AOPServicesImpl">
         <property name="description" value="basicAop"></property>
     </bean>
-    
-    <bean id="serviceAspectBean" class="com.fhlxc.spring.basicaop.AnnontationAdvice">
-    </bean>
 
 </beans>
