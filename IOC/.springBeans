@@ -11,6 +11,7 @@
 		<config>src/main/resources/aopInterceptor.xml</config>
 		<config>src/main/resources/xmlInterceptor.xml</config>
 		<config>src/main/resources/annontationInterceptor.xml</config>
+		<config>src/main/resources/springDAODemo.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
