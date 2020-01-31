@@ -9,16 +9,12 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:service.properties" />
-    </bean>
-
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName">
-            <value>com.mysql.jdbc.Driver</value>
+            <value>com.mysql.cj.jdbc.Driver</value>
         </property>
         <property name="url">
-            <value>jdbc:mysql://${ip}:3306/daodemodb</value>
+            <value>jdbc:mysql://192.168.2.106:3306/daodemodb?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC&amp;useSSL=false</value>
         </property>
         <property name="username">
             <value>root</value>
