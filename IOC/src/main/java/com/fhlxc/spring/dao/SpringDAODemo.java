@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 /**
@@ -30,6 +31,17 @@ public class SpringDAODemo extends JdbcDaoSupport implements IUserDAO {
             users.add(user);
         }
         return users;
+    }
+    
+    @Override
+    public List<User> queryAll() {
+        String sql ="select id, name, age, money from t_user where ?";
+        UserMappingSqlQuery userMappingSqlQuery = new UserMappingSqlQuery();
+        userMappingSqlQuery.setDataSource(getDataSource());
+        userMappingSqlQuery.setSql(sql);
+        userMappingSqlQuery.setParameters(new SqlParameter(java.sql.Types.VARCHAR));
+        userMappingSqlQuery.compile();
+        return userMappingSqlQuery.execute(new Object[] {new String("1 = 1")});
     }
 
     @Override

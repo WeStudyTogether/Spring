@@ -13,5 +13,6 @@ public interface IUserDAO {
 
     public List<User> queryAllUser();
     public Boolean addUser(User user);
+    public List<User> queryAll();
     
 }

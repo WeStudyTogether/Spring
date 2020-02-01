@@ -24,6 +24,10 @@ public class SpringDAODemoTest {
         for (User u: list) {
             System.out.println(u.toString());
         }
+        list = userDAO.queryAll();
+        for (User u: list) {
+            System.out.println(u.toString());
+        }
     }
 
 }
