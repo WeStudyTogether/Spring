@@ -55,4 +55,20 @@ public class SpringDAODemo extends JdbcDaoSupport implements IUserDAO {
         return false;
     }
 
+    private Boolean outInMoney(int toUserId, float money) {
+        String sql = "update t_user set money = money + ? where id = ?";
+        int row = getJdbcTemplate().update(sql, new Object[] {money, toUserId});
+        if (row > 0) {
+            return true;
+        }
+        return false;
+    }
+    
+    @Override
+    public Boolean transfer(int fromUserId, int toUserId, float transferMoney) {
+        Boolean out = outInMoney(fromUserId, -transferMoney);
+        Boolean in = outInMoney(toUserId, transferMoney);
+        return out && in;
+    }
+
 }

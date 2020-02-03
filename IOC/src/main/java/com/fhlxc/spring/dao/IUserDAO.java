@@ -14,5 +14,6 @@ public interface IUserDAO {
     public List<User> queryAllUser();
     public Boolean addUser(User user);
     public List<User> queryAll();
+    public Boolean transfer(int fromUserId, int toUserId, float transferMoney);
     
 }
