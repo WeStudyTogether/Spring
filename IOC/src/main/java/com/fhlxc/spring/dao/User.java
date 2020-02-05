@@ -1,5 +1,7 @@
 package com.fhlxc.spring.dao;
 
+import com.fhlxc.spring.mybatis.UserStatus;
+
 /**
 * @author Xingchao Long
 * @date 2020年1月30日 下午5:14:30
@@ -13,10 +15,19 @@ public class User {
     private String name;
     private int age;
     private double money;
+    private UserStatus status;
     
     public User() {
     }
     
+    public UserStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(UserStatus status) {
+        this.status = status;
+    }
+
     public User(String name, int age, double money) {
         this.name = name;
         this.age = age;
