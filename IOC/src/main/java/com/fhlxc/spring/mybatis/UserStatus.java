@@ -21,4 +21,14 @@ public enum UserStatus {
     public int getStatus() {
         return status;
     }
+    
+    public static UserStatus fromValue(int value) {
+        for(UserStatus userState:UserStatus.values()) {
+            if(userState.status==value) {
+                return userState;
+            }
+        }
+        throw new IllegalArgumentException("Cannot create evalue from value: " + value + "!");
+    }
+    
 }

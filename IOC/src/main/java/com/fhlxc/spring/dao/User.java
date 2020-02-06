@@ -34,9 +34,15 @@ public class User {
         this.money = money;
     }
     
+    public User(String name, double money, UserStatus status) {
+        this.name = name;
+        this.status = status;
+        this.money = money;
+    }
+    
     @Override
     public String toString() {
-        return "Id:" + getId() + " Name:" + getName() + " Age:" + getAge() + " Money:" + getMoney();
+        return "Id:" + getId() + " Name:" + getName() + " Age:" + getAge() + " Money:" + getMoney() + " Status:" + getStatus();
     }
 
     public int getId() {
