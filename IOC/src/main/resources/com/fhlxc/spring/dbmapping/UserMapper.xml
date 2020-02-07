@@ -20,4 +20,16 @@
     <select id="getUser" parameterType="int" resultType="User" resultMap="userResult">
         select * from t_user where id = #{id}
     </select>
+    <sql id="userColumns">
+        ${alias}.id,${alias}.name,${alias}.age,${alias}.money,${alias}.status
+    </sql>
+    <sql id="sometable">
+        ${prefix}user as ${alias}
+    </sql>
+    <sql id="someinclude">
+        from <include refid="${include_target}"/>
+    </sql>
+    <select id="getUserList2" resultMap="userResult">
+        
+    </select>
 </mapper>
