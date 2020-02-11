@@ -1,5 +1,10 @@
 package com.fhlxc.spring.dao;
 
+import java.util.List;
+
+import com.fhlxc.spring.mybatis.Card;
+import com.fhlxc.spring.mybatis.Course;
+import com.fhlxc.spring.mybatis.Role;
 import com.fhlxc.spring.mybatis.UserStatus;
 
 /**
@@ -16,7 +21,34 @@ public class User {
     private int age;
     private double money;
     private UserStatus status;
+    private Card card;
+    private List<Role> roles;
+    private List<Course> courses;
     
+    public Card getCard() {
+        return card;
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
+
     public User() {
     }
     

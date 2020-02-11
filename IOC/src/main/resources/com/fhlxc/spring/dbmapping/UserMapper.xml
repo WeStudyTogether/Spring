@@ -17,6 +17,47 @@
         <result column="money" property="money"/>
         <result column="status" property="status" typeHandler="com.fhlxc.spring.mybatis.CusEnumStatusHandler"/>
     </resultMap>
+    <resultMap type="Card" id="cardResult">
+        <result column="id" property="id"/>
+        <result column="no" property="cardNo"/>
+        <result column="city" property="city"/>
+        <result column="address" property="address"/>
+        <result column="userid" property="userId"/>
+    </resultMap>
+    <resultMap type="Course" id="courseResult">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="userid" property="userid"/>
+    </resultMap>
+    <resultMap type="Role" id="roleResult">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="desp" property="desp"/>
+        <result column="userid" property="userid"/>
+    </resultMap>
+    <resultMap type="User" id="userResultTest">
+        <result column="user_id" property="id"/>
+        <result column="user_name" property="name"/>
+        <!-- 
+        <result column="user_age" property="age"/>
+        <result column="user_money" property="money"/>
+         -->
+        <result column="user_status" property="status" typeHandler="com.fhlxc.spring.mybatis.CusEnumStatusHandler"/>
+        <association property="card" javaType="Card" columnPrefix="card_" resultMap="cardResult">
+        </association>
+        <collection property="courses" javaType="ArrayList" ofType="Course" columnPrefix="course_" resultMap="courseResult">
+        </collection>
+        <collection property="roles" javaType="ArrayList" ofType="Role" columnPrefix="role_" resultMap="roleResult">
+        </collection>
+        <discriminator javaType="String" column="user_status">
+            <case value="DISABLED" resultType="User">
+                <result column="user_age" property="age"/>
+            </case>
+            <case value="AVAILABLE">
+                <result column="user_money" property="money"/>
+            </case>
+        </discriminator>
+    </resultMap>
     <select id="getUser" parameterType="int" resultType="User" resultMap="userResult">
         select * from t_user where id = #{id}
     </select>
@@ -39,5 +80,12 @@
             <property name="alias" value="t1"/>
             <property name="include_target" value="sometable"/>
         </include>
+    </select>
+    <select id="getUser1" parameterType="int" 
+         resultMap="userResultTest">
+        select a.id as user_id,a.name as user_name,a.age as user_age,a.money as user_money,a.status as user_status,b.id as card_id,b.cardNo as card_cardNo,b.userid as card_userid,
+        b.city as card_city,b.address as card_address,c.id as course_id,c.name as course_name,c.userid as course_userid,e.name as role_name,e.desp as role_desp 
+        from t_user a left join card b on a.id=b.userid left join course c on a.id=c.userid left join user_role d on a.id=d.userid left join role e on d.roleid=e.id
+        where a.id=#{id}
     </select>
 </mapper>
