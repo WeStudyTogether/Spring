@@ -22,9 +22,12 @@
     </settings>
     <typeAliases>
         <typeAlias type="com.fhlxc.spring.dao.User" alias="User"/>
+        <!--  
         <typeAlias type="com.fhlxc.spring.mybatis.Card" alias="Card"/>
         <typeAlias type="com.fhlxc.spring.mybatis.Course" alias="Course"/>
         <typeAlias type="com.fhlxc.spring.mybatis.Role" alias="Role"/>
+        -->
+        <package name="com.fhlxc.spring.mybatis"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">

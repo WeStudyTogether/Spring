@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserMapper">
+    <!-- <cache type="com.fhlxc.spring.mybatis.CusCache"></cache> -->
     <select id="getUserList" resultMap="userResult">
         select * from t_user
     </select>
@@ -58,7 +59,7 @@
             </case>
         </discriminator>
     </resultMap>
-    <select id="getUser" parameterType="int" resultType="User" resultMap="userResult">
+    <select id="getUser" parameterType="int" resultType="User" resultMap="userResult" useCache="true">
         select * from t_user where id = #{id}
     </select>
     <sql id="userColumns">
@@ -87,5 +88,18 @@
         b.city as card_city,b.address as card_address,c.id as course_id,c.name as course_name,c.userid as course_userid,e.name as role_name,e.desp as role_desp 
         from t_user a left join card b on a.id=b.userid left join course c on a.id=c.userid left join user_role d on a.id=d.userid left join role e on d.roleid=e.id
         where a.id=#{id}
+    </select>
+    <select id="finduserbylikename1" parameterType="String" resultMap="userResult">
+        select * from t_user where 1 = 1
+        <if test="_parameter != null and _parameter != ''">
+            and name like #{_parameter}
+        </if>
+    </select>
+    <select id="finduserbylikename2" parameterType="Map" resultMap="userResult">
+        <bind name="pattern" value="'%' + _parameter.name + '%'"/>
+        select * from t_user where 1 = 1
+        <if test="_parameter.name != null and _parameter.name != ''">
+            and name like #{pattern}
+        </if>
     </select>
 </mapper>
