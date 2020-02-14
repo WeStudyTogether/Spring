@@ -20,7 +20,7 @@
     </resultMap>
     <resultMap type="Card" id="cardResult">
         <result column="id" property="id"/>
-        <result column="no" property="cardNo"/>
+        <result column="cardno" property="cardNo"/>
         <result column="city" property="city"/>
         <result column="address" property="address"/>
         <result column="userid" property="userId"/>
@@ -102,4 +102,38 @@
             and name like #{pattern}
         </if>
     </select>
+    <select id="findcard" parameterType="Map" resultMap="cardResult">
+        <bind name="pattern" value="'%' + _parameter.value + '%'"/>
+        select * from card where 1 = 1
+        <choose>
+            <when test="type == 'city'">
+                and city like #{pattern}
+            </when>
+            <when test="type == 'address'">
+                and address like #{pattern}
+            </when>
+            <otherwise>
+                and city like #{pattern} or address like #{pattern}
+            </otherwise>
+        </choose>
+    </select>
+    <update id="updatecard" parameterType="Map">
+        update card 
+        <trim prefix="set" suffixOverrides=",">
+            <if test="_parameter.cardNo != null and _parameter.cardNo != ''">
+                cardNo = #{cardNo},
+            </if>
+            <if test="_parameter.city != null and _parameter.city != ''">
+                city = #{city},
+            </if>
+        </trim>
+        <trim prefix="WHERE" prefixOverrides="and|or">
+            <if test="_parameter.id!=null and _parameter.id != ''">
+                and id = #{id}
+            </if>
+            <if test="_parameter.address!=null and _parameter.address!=''">
+                and address = #{address}
+            </if>
+        </trim>
+    </update>
 </mapper>
