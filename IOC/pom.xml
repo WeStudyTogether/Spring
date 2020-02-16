@@ -77,5 +77,35 @@
         <artifactId>mybatis</artifactId>
         <version>3.5.4</version>
     </dependency>
+    <dependency>
+        <groupId>org.mybatis.generator</groupId>
+        <artifactId>mybatis-generator-core</artifactId>
+        <version>1.4.0</version>
+    </dependency>
+    <dependency>
+        <groupId>com.github.pagehelper</groupId>
+        <artifactId>pagehelper</artifactId>
+        <version>5.1.11</version>
+    </dependency>
   </dependencies>
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-maven-plugin</artifactId>
+            <version>1.4.0</version>
+            <dependencies>
+                <dependency>
+                    <groupId>mysql</groupId>
+                    <artifactId>mysql-connector-java</artifactId>
+                    <version>8.0.18</version>
+                </dependency>
+            </dependencies>
+            <configuration>
+                <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
+                <overwrite>true</overwrite>
+            </configuration>
+        </plugin>
+    </plugins>
+  </build>
 </project>

@@ -136,4 +136,10 @@
             </if>
         </trim>
     </update>
+    <select id="findcardbyuserids" parameterType="Map" resultMap="userResult">
+        select * from t_user where id in 
+        <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
 </mapper>
