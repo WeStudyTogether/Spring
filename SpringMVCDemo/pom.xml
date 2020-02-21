@@ -17,7 +17,7 @@
     <jsp-api.version>2.3.3</jsp-api.version>
     <!--  -->
     <jstl.version>1.2</jstl.version>
-    <standard.version>1.2.5</standard.version>
+    <standard.version>1.1.2</standard.version>
   </properties>
   <dependencies>
     <dependency>
@@ -67,13 +67,13 @@
         <version>${spring.version}</version>
     </dependency>
     <dependency>
-        <groupId>javax.servlet.jsp.jstl</groupId>
+        <groupId>javax.servlet</groupId>
         <artifactId>jstl</artifactId>
         <version>${jstl.version}</version>
     </dependency>
     <dependency>
-        <groupId>org.apache.taglibs</groupId>
-        <artifactId>taglibs-standard-impl</artifactId>
+        <groupId>taglibs</groupId>
+        <artifactId>standard</artifactId>
         <version>${standard.version}</version>
     </dependency>
     <dependency>

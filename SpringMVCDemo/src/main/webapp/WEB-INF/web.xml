@@ -6,5 +6,50 @@
     id="WebApp_ID" version="3.0">
   <display-name>SpringMVCDemo</display-name>
   
-  <!-- 指定Spring Bean配置文件所在的目录，默认配置是在WEB-INF目录下 -->
+    <!-- 指定Spring Bean配置文件所在的目录，默认配置是在WEB-INF目录下 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring-context.xml</param-value>
+    </context-param>
+  
+    <!-- spring 配置 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+  
+    <!-- spring MVC 配置 -->
+	<servlet>
+		<servlet-name>spring</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>spring</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<filter>
+	   <filter-name>CharacterEncodingFilter</filter-name>
+	   <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+	   <init-param>
+	       <param-name>encoding</param-name>
+	       <param-value>utf-8</param-value>
+	   </init-param>
+	   <init-param>
+	       <param-name>forceEncoding</param-name>
+	       <param-value>true</param-value>
+	   </init-param>
+	</filter>
+	<filter-mapping>
+	   <filter-name>CharacterEncodingFilter</filter-name>
+	   <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<welcome-file-list>
+	   <welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>
