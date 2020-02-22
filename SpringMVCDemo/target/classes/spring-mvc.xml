@@ -20,10 +20,34 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
     
+    <!-- 通过requestMappingHandler来映射控制器 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/view/"/>
         <property name="suffix" value=".jsp"/>
+    </bean>
+    
+    <!-- 通过bean映射控制器 -->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+    <bean id="hello.do" class="com.fhlxc.controller.HelloController"></bean>
+    
+    <!-- 通过SimpleUrlMappingHander -->
+    <bean id="helloController" class="com.fhlxc.controller.HelloController"></bean>
+    
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="hello.htm">helloController</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="urlMap">
+            <map>
+                <entry key="hello.html" value-ref="helloController"/>
+            </map>
+        </property>
     </bean>
     
     <mvc:default-servlet-handler/>
