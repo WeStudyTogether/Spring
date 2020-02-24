@@ -1,5 +1,7 @@
 package com.fhlxc.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.fhlxc.model.User;
 
 /**
 * @author Xingchao Long
@@ -45,4 +49,20 @@ public class Login {
         return modelAndView;
     }
     
+    @RequestMapping(value = "login.html")
+    public ModelAndView login3(HttpServletRequest request, HttpServletResponse response, User user) {
+        ModelAndView modelAndView = new ModelAndView("index");
+        System.out.println("name:" + user.getName() + " pwd:" + user.getPwd());
+        return modelAndView;
+    }
+    
+    @RequestMapping(value = "login.htm")
+    public ModelAndView login4(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("utf-8");
+        String name = request.getParameter("name");
+        String pwd = request.getParameter("pwd");
+        ModelAndView modelAndView = new ModelAndView("index");
+        System.out.println("name: " + name + " pwd1: " + pwd);
+        return modelAndView;
+    }
 }

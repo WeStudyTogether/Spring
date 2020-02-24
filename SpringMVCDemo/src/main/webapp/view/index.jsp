@@ -7,7 +7,7 @@
 <title>URL传递数据到Controller</title>
 </head>
 <body>
-    <form id="form1" name="myform" method="post" action="login.do">
+    <form id="form1" name="myform" method="post" action="login.html">
         用户：<input type="text" name="name"> <br>
         密码：<input name="pwd" type="password"> <br>
     <input type="submit">
