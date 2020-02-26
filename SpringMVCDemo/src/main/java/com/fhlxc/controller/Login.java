@@ -65,4 +65,11 @@ public class Login {
         System.out.println("name: " + name + " pwd1: " + pwd);
         return modelAndView;
     }
+    
+    @RequestMapping(value = "login5.do")
+    public ModelAndView login5(HttpServletRequest request, HttpServletResponse response, User user) {
+        ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.addObject("user", user);
+        return modelAndView;
+    }
 }
