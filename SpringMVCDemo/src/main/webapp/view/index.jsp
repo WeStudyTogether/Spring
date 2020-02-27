@@ -14,5 +14,6 @@
     </form>
         用户：${ user.name }<br>
         密码：${ user.pwd }<br>
+    name: ${ name } <br>
 </body>
 </html>

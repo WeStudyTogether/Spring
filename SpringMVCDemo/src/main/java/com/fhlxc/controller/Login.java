@@ -1,15 +1,20 @@
 package com.fhlxc.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fhlxc.model.User;
@@ -21,6 +26,7 @@ import com.fhlxc.model.User;
 * @Description 
 */
 
+@SessionAttributes({"user1"})
 @Controller
 public class Login {
     
@@ -71,5 +77,50 @@ public class Login {
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("user", user);
         return modelAndView;
+    }
+    
+    @RequestMapping(value = "testModel.do")
+    public String testModel (Model model) {
+        User user1 = new User();
+        user1.setName("abc");
+        user1.setPwd("123456");
+        model.addAttribute("user", user1);
+        return "index";
+    }
+    
+    @RequestMapping("test.do")
+    public ModelAndView getTest(HttpServletRequest request) {
+        return new ModelAndView("HelloWorld");
+    }
+    
+    @RequestMapping("testModelAttribute")
+    public String testModelAttribute(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("use") User user,
+            @ModelAttribute("name") String name, Model model) {
+        user.setName("addd");
+        user.setPwd("12345678");
+        name = "TestModelAttribute";
+        model.addAttribute("user", user);
+        model.addAttribute("name", name);
+        return "index";
+    }
+    
+    @ModelAttribute(value = "mymap")
+    public Map<String, Object> map() {
+        User user = new User();
+        user.setName("dfdfs");
+        user.setPwd("dfs");
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("user", user);
+        return map;
+    }
+    
+    @ModelAttribute
+    public void voidmap(Model model) {
+        User user = new User();
+        user.setName("dfdfs");
+        user.setPwd("dfdsfss");
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("user", user);
+        model.addAttribute("voidmap", map);
     }
 }
