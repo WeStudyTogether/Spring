@@ -50,5 +50,12 @@
     </bean>
     
     <mvc:default-servlet-handler/>
+    
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/test.do"/>
+            <bean class="com.fhlxc.model.LoginIntercepter"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

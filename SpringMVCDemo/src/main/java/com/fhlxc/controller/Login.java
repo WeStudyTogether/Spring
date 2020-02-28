@@ -84,7 +84,7 @@ public class Login {
         User user1 = new User();
         user1.setName("abc");
         user1.setPwd("123456");
-        model.addAttribute("user", user1);
+        model.addAttribute("user1", user1);
         return "index";
     }
     

@@ -8,8 +8,8 @@
 </head>
 <body>
 Hello World!<br>
-name: ${ mymap.user.name }<br>
-pwd: ${ mymap.user.pwd }<br>
+name: ${ user1.name }<br>
+pwd: ${ user1.pwd }<br>
 name1: ${ voidmap.user.name }<br>
 pwd1: ${ voidmap.user.pwd }<br>
 </body>
