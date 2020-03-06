@@ -1,0 +1,25 @@
+2020/03/06-10:58:37 [main] INFO  com.fhlxc.demo.HelloWorldApplication- Starting HelloWorldApplication on forever-happy with PID 7992 (E:\WeStudytogether\Spring\HelloWorld\target\classes started by Z1588 in E:\WeStudytogether\Spring\HelloWorld)
+2020/03/06-10:58:37 [main] INFO  com.fhlxc.demo.HelloWorldApplication- The following profiles are active: dev
+2020/03/06-10:58:39 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8080 (http)
+2020/03/06-10:58:39 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/03/06-10:58:39 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020/03/06-10:58:39 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/03/06-10:58:39 [main] DEBUG org.springframework.web.context.ContextLoader- Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2020/03/06-10:58:39 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 2232 ms
+2020/03/06-10:58:40 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/03/06-10:58:40 [main] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter- ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2020/03/06-10:58:40 [main] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- 5 mappings in 'requestMappingHandlerMapping'
+2020/03/06-10:58:41 [main] DEBUG org.springframework.web.servlet.handler.SimpleUrlHandlerMapping- Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2020/03/06-10:58:41 [main] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver- ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2020/03/06-10:58:42 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8080 (http) with context path ''
+2020/03/06-10:58:42 [main] INFO  com.fhlxc.demo.HelloWorldApplication- Started HelloWorldApplication in 5.891 seconds (JVM running for 8.79)
+2020/03/06-10:59:05 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/03/06-10:59:05 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/03/06-10:59:05 [http-nio-8080-exec-1] DEBUG org.springframework.web.servlet.DispatcherServlet- Detected StandardServletMultipartResolver
+2020/03/06-10:59:05 [http-nio-8080-exec-1] DEBUG org.springframework.web.servlet.DispatcherServlet- enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2020/03/06-10:59:05 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 16 ms
+2020/03/06-10:59:05 [http-nio-8080-exec-1] DEBUG org.springframework.web.servlet.DispatcherServlet- GET "/index/hello3", parameters={}
+2020/03/06-10:59:05 [http-nio-8080-exec-1] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped to com.fhlxc.demo.IndexController#Hello3()
+2020/03/06-10:59:05 [http-nio-8080-exec-1] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor- Using 'text/html', given [text/html, application/xhtml+xml, image/webp, application/xml;q=0.9, */*;q=0.8] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2020/03/06-10:59:05 [http-nio-8080-exec-1] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor- Writing ["Hello World, Name: fhlxc, Age: 18"]
+2020/03/06-10:59:05 [http-nio-8080-exec-1] DEBUG org.springframework.web.servlet.DispatcherServlet- Completed 200 OK
