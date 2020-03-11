@@ -49,6 +49,10 @@ public class User {
         this.age = age;
     }
     
+    public String toString() {
+        return id + " " + name + " " + age;
+    }
+    
     public static List<User> getUsers() {
         List<User> users = new ArrayList<User>();
         for (int i = 0; i < 5; i++) {
