@@ -8,6 +8,5 @@
         <typeAlias type="java.util.LinkedHashMap" alias="LinkedHashMap"/>
         <typeAlias type="java.util.ArrayList" alias="ArrayList"/>
         <typeAlias type="java.util.LinkedList" alias="LinkedList"/>
-        <typeAlias type="com.fhlxc.demo.User" alias="User"/>
     </typeAliases>
 </configuration>

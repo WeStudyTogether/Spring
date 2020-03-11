@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fhlxc.mapper.UserMapper">
-    <resultMap type="com.fhlxc.demo.User" id="BaseResultMap">
+<mapper namespace="com.fhlxc.mapper.UserMapper1">
+    <resultMap type="User" id="BaseResultMap">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="age" property="age" jdbcType="NUMERIC"/>
@@ -9,13 +9,13 @@
     <sql id="Base_Column_List">
         id, name, age
     </sql>
-    <select id="getAll">
+    <select id="getAll" resultMap="BaseResultMap">
         select <include refid="Base_Column_List"/> from user
     </select>
-    <select id="getOne" parameterMap="Integer" resultMap="BaseResultMap">
+    <select id="getOne" parameterType="Integer" resultMap="BaseResultMap">
         select <include refid="Base_Column_List"/> from user where id = #{id}
     </select>
-    <insert id="insert" parameterMap="User">
+    <insert id="insert" parameterType="User">
         insert into user (name, age) values (#{name}, #{age})
     </insert>
     <update id="update" parameterType="User">

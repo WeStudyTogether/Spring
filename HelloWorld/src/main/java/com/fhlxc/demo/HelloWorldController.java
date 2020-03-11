@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fhlxc.mapper.UserMapper;
+import com.fhlxc.mapper.UserMapper1;
 
 /**
 * @author Xingchao Long
@@ -21,6 +22,8 @@ public class HelloWorldController {
 
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private UserMapper1 userMapper1;
     
     @RequestMapping(value = "hello4")
     public String hello(Model model) {
@@ -38,9 +41,9 @@ public class HelloWorldController {
     public String hello7(Model model) {
         User user = new User();
         user.setName("fhlxc");
-        user.setAge(21);
-        userMapper.insert(user);
-        model.addAttribute("users", userMapper.getAll());
+        user.setAge(22);
+        userMapper1.insert(user);
+        model.addAttribute("users", userMapper1.getAll());
         return "hello";
     }
     
