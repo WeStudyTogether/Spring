@@ -1,5 +1,6 @@
 package com.fhlxc.demo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +11,9 @@ import java.util.List;
 * @Description 
 */
 
-public class User {
+public class User implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private int id;
     private String name;
     private int age;
