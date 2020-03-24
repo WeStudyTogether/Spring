@@ -1,7 +1,5 @@
 package com.fhlxc.spring.model;
 
-import com.fhlxc.spring.model.TUser;
-
 public interface TUserMapper {
     int deleteByPrimaryKey(Integer id);
 
