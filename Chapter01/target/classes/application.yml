@@ -1,0 +1,14 @@
+server:
+  port: 8081
+  error:
+    path: /error
+  servlet:
+    context-path: /chapter01
+    session:
+      timeout: 30m
+  tomcat:
+    max-threads: 500
+  ssl:
+    key-store: /home/foreverhappy/桌面/sang.p12
+    key-alias: tomcathttps
+    key-store-password: zxc123..
