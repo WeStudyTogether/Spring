@@ -12,3 +12,29 @@ server:
     key-store: /home/foreverhappy/桌面/sang.p12
     key-alias: tomcathttps
     key-store-password: zxc123..
+book: 
+  name: 三国演义
+  author: 罗贯中
+  price: 30
+my: 
+  name: 江南一点雨
+  address: China
+  favorites:
+  - 足球
+  - 徒步
+  - Coding
+  users:
+  - name: 江南一点雨
+    address: china
+    favorites:
+      - 足球
+      - 徒步
+      - coding
+  - name: sang
+    address: GZ
+    favorites: 
+      - 阅读
+      - 吉他
+  
+  
+  

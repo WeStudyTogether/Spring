@@ -1,0 +1,37 @@
+{"properties": [
+{
+  "name": "book.name",
+  "type": "java.lang.String",
+  "description": "A description for 'book'"
+},
+{
+  "name": "book.author",
+  "type": "java.lang.String",
+  "description": "A description for 'author'"
+},
+{
+  "name": "book.price",
+  "type": "java.lang.Float",
+  "description": "A description for 'price'"
+},
+{
+  "name": "my.name",
+  "type": "java.lang.String",
+  "description": "A description for 'name'"
+},
+{
+  "name": "my.address",
+  "type": "java.lang.String",
+  "description": "A description for 'address'"
+},
+{
+    "name": "my.favorites",
+    "type": "java.util.List",
+    "description": "A list of my favorites"
+},
+{
+    "name": "my.users",
+    "type": "java.util.List",
+    "description": "A list of users"
+}
+]}
