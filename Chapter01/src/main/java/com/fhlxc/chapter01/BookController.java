@@ -1,6 +1,7 @@
 package com.fhlxc.chapter01;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,17 @@ public class BookController {
     @RequestMapping("book")
     public String book() {
         return book.toString();
+    }
+    
+    @RequestMapping("book1")
+    public Book book1() {
+        Book book = new Book();
+        book.setId(1);
+        book.setAuthor("罗贯中");
+        book.setName("三国演义");
+        book.setPrice(30f);
+        book.setPublicationDate(new Date());
+        return book;
     }
     
     @RequestMapping("books")

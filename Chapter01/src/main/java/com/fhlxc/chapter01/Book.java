@@ -1,7 +1,11 @@
 package com.fhlxc.chapter01;
 
+import java.util.Date;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
 * @author Xingchao Long
@@ -18,6 +22,8 @@ public class Book {
     private String name;
     private String author;
     private Float price;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date publicationDate;
     
     public String getName() {
         return name;
@@ -49,6 +55,14 @@ public class Book {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Date getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPublicationDate(Date publicationDate) {
+        this.publicationDate = publicationDate;
     }
 
     @Override
