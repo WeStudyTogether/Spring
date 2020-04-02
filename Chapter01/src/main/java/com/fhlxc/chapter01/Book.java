@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "book")
 public class Book {
     
+    private Integer id;
     private String name;
     private String author;
     private Float price;
@@ -42,6 +43,14 @@ public class Book {
         this.price = price;
     }
     
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return name + " " + author + " " + price;
