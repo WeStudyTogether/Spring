@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
   <properties>
     <!-- spring -->
-    <spring.version>5.2.3.RELEASE</spring.version>
+    <spring.version>5.3.19</spring.version>
     <!-- log -->
     <commons-logging.version>1.2</commons-logging.version>
     <!-- Servlet -->
